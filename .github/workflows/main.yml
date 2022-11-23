@@ -2,6 +2,11 @@
 name: Bash workflow
 
 on: [push]
+
+env:
+  Team_name: Japan
+  Team2_name: Germany
+
 jobs:
   actions_demo:
     runs-on: ubuntu-latest
@@ -10,3 +15,14 @@ jobs:
     - run: pwd
     - run: chmod +x bash.sh
     - run: ./bash.sh
+
+
+  env_vars_job:
+    runs-on: ubuntu-latest
+    env:
+      name: Tomiyasu
+    steps:
+    - run: echo "Hello World"
+    - run: echo "Hello $name" # name is the env var name, we access it with $var
+    - run: echo "$Team_name beat $Team2_name:!!""
+    - run: echo "${{secrets.Germany_Bribe_Amount}"
