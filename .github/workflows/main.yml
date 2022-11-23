@@ -1,0 +1,12 @@
+
+name: Bash workflow
+
+on: [push]
+jobs:
+  actions_demo:
+    runs-on: ubuntu-latest
+    steps:
+    - run: pwd
+    - run: action/checkout@v3
+    - run: chmod +x bash.sh
+    - run: ./bash.sh
