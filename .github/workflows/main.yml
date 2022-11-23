@@ -6,7 +6,9 @@ jobs:
   actions_demo:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: my-branch
     - run: pwd
-    - run: actions/checkout@v3
     - run: chmod +x bash.sh
     - run: ./bash.sh
